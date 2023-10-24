@@ -34,10 +34,12 @@ namespace Math3.Lib
         {
             if (_busy)
             {
+                _queue.NotifyNotEmpty();
                 if (_random.Next() < _processProbability)
                 {
                     _busy = false;
                     _element.Get();
+                    _queue.NotifyEmpty();
                 }
             }
         }
