@@ -12,10 +12,10 @@ namespace Math3.Lib
         public Model() 
         {
             Exit exit = new Exit();
-            Processor processor2 = new Processor(_random, 0,45f, exit);
-            Processor processor1 = new Processor();
-            Queue queue = new Queue();
-            Generator generator = new Generator();
+            Processor processor2 = new Processor(_random, 0.45f, exit);
+            Processor processor1 = new Processor(_random, 0.40f, processor2);
+            Queue queue = new Queue(processor1, 1);
+            Generator generator = new Generator(queue);
         }
     }
 }
