@@ -53,6 +53,10 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Lib\Element.cs" />
+    <Compile Include="Lib\Generator.cs" />
+    <Compile Include="Lib\Model.cs" />
+    <Compile Include="Lib\Processor.cs" />
+    <Compile Include="Lib\Queue.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
