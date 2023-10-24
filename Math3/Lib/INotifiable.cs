@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Math3.Lib
 {
-    public class Model
+    public interface INotifiable
     {
+        void NotifyEmpty();
+        void NotifyNotEmpty();
     }
 }

@@ -1,8 +1,8 @@
 ﻿
 namespace Math3.Lib
 {
-    public interface IDeliver
+    public interface IGet
     {
-        void Deliver();
+        void Get();
     }
 }

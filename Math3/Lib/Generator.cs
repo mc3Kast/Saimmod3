@@ -1,12 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Math3.Lib
 {
-    internal class Generator
+    public class Generator : IElement
     {
+        private readonly IGet _element;
+        private uint _tickCounts;
+
+        public Generator(IGet element)
+        {
+            _element = element;
+            _tickCounts = 0;
+        }
+
+        public void Tick()
+        {
+            _tickCounts++;
+            if(_tickCounts % 2 == 0)
+            {
+                _element.Get();
+            }
+        }
     }
 }

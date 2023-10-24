@@ -1,12 +1,48 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Math3.Lib
 {
-    internal class Queue
+    public class Queue : IElement, IGet, INotifiable
     {
+        private readonly Random _random;
+        private readonly IGet _element;
+        private readonly uint _capacity;
+        private uint _requests = 0;
+        private bool _nextIsEmpty = true;
+
+        public Queue(Random random, IGet element, uint capacity)
+        {
+            _random = random;
+            _element = element;
+            _capacity = capacity;
+        }
+
+        public void Get()
+        {
+            if (_requests < _capacity)
+            {
+                _requests++;
+            }
+        }
+
+
+        public void NotifyEmpty()
+        {
+            _nextIsEmpty = true;
+        }
+
+        public void NotifyNotEmpty()
+        {
+            _nextIsEmpty = false;
+        }
+
+        public void Tick()
+        {
+            if (_nextIsEmpty && _requests > 0)
+            {
+                _element.Get();
+                _requests--;
+            }
+        }
     }
 }

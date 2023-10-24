@@ -55,6 +55,7 @@
     <Compile Include="Lib\IElement.cs" />
     <Compile Include="Lib\Generator.cs" />
     <Compile Include="Lib\IGet.cs" />
+    <Compile Include="Lib\INotifiable.cs" />
     <Compile Include="Lib\Model.cs" />
     <Compile Include="Lib\Processor.cs" />
     <Compile Include="Lib\Queue.cs" />

@@ -11,13 +11,15 @@ namespace Math3.Lib
         private readonly Random _random;
         private readonly float _processProbability;
         private readonly IGet _element;
+        private readonly INotifiable _queue;
         private bool _busy = false;
 
-        public Processor(Random random, float p, IGet element)
+        public Processor(Random random, float p, IGet element, INotifiable queue)
         {
             _random = random;
             _processProbability = 1 - p;
             _element = element;
+            _queue = queue;
         }
 
         public void Get()
