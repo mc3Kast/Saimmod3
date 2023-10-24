@@ -6,7 +6,38 @@ using System.Threading.Tasks;
 
 namespace Math3.Lib
 {
-    internal class Processor
+    public class Processor : IElement, IGet
     {
+        private readonly Random _random;
+        private readonly float _processProbability;
+        private readonly IGet _element;
+        private bool _busy = false;
+
+        public Processor(Random random, float p, IGet element)
+        {
+            _random = random;
+            _processProbability = 1 - p;
+            _element = element;
+        }
+
+        public void Get()
+        {
+            if (!_busy)
+            {
+                _busy = true;
+            }
+        }
+
+        public void Tick()
+        {
+            if (_busy)
+            {
+                if (_random.Next() < _processProbability)
+                {
+                    _busy = false;
+                    _element.Get();
+                }
+            }
+        }
     }
 }
