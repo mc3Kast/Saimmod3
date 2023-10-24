@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace Math3.Lib
 {
     public class Processor : IElement, IGet
@@ -7,7 +6,6 @@ namespace Math3.Lib
         private readonly Random _random;
         private readonly float _processProbability;
         private readonly IGet _element;
-        private readonly INotifiable? _queue;
         private bool _busy = false;
 
         public Processor(Random random, float p, IGet element)
@@ -31,12 +29,10 @@ namespace Math3.Lib
         {
             if (_busy)
             {
-                _queue?.NotifyNotEmpty();
                 if (_random.NextDouble() < _processProbability)
                 {
                     _busy = false;
                     _element.Get();
-                    _queue?.NotifyEmpty();
                 }
             }
         }

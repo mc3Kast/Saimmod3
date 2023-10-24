@@ -1,7 +1,7 @@
 ﻿
 namespace Math3.Lib
 {
-    public class Queue : IElement, IGet, INotifiable
+    public class Queue : IElement, IGet
     {
         private readonly IGet _element;
         private readonly uint _capacity;
@@ -22,17 +22,6 @@ namespace Math3.Lib
                 return true;
             }
             else return false;
-        }
-
-
-        public void NotifyEmpty()
-        {
-            _nextIsEmpty = true;
-        }
-
-        public void NotifyNotEmpty()
-        {
-            _nextIsEmpty = false;
         }
 
         public void Tick()
