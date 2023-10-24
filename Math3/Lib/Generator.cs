@@ -6,6 +6,7 @@ namespace Math3.Lib
     {
         private readonly IGet _element;
         private uint _tickCounts;
+        public uint generatedRequests = 0;
 
         public Generator(IGet element)
         {
@@ -19,6 +20,7 @@ namespace Math3.Lib
             if(_tickCounts % 2 == 0)
             {
                 _element.Get();
+                generatedRequests++;
             }
         }
     }

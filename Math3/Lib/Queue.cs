@@ -4,15 +4,13 @@ namespace Math3.Lib
 {
     public class Queue : IElement, IGet, INotifiable
     {
-        private readonly Random _random;
         private readonly IGet _element;
         private readonly uint _capacity;
         private uint _requests = 0;
         private bool _nextIsEmpty = true;
 
-        public Queue(Random random, IGet element, uint capacity)
+        public Queue(IGet element, uint capacity)
         {
-            _random = random;
             _element = element;
             _capacity = capacity;
         }

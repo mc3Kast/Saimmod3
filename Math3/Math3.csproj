@@ -52,6 +52,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lib\Exit.cs" />
     <Compile Include="Lib\IElement.cs" />
     <Compile Include="Lib\Generator.cs" />
     <Compile Include="Lib\IGet.cs" />
