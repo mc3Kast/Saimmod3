@@ -8,5 +8,9 @@ namespace Math3.Lib
 {
     public class Model
     {
+        public Model() 
+        {
+
+        }
     }
 }

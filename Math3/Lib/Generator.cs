@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace Math3.Lib
 {
     public class Generator : IElement
