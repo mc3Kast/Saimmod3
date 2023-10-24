@@ -7,15 +7,18 @@ namespace Math3.Lib
         private readonly Random _random;
         private readonly float _processProbability;
         private readonly IGet _element;
-        private readonly INotifiable _queue;
+        private readonly INotifiable? _queue;
         private bool _busy = false;
 
-        public Processor(Random random, float p, IGet element, INotifiable queue)
+        public Processor(Random random, float p, IGet element, INotifiable? queue)
         {
             _random = random;
             _processProbability = 1 - p;
             _element = element;
-            _queue = queue;
+            if (queue != null)
+            {
+                _queue = queue;
+            }
         }
 
         public void Get()
@@ -31,7 +34,7 @@ namespace Math3.Lib
             if (_busy)
             {
                 _queue.NotifyNotEmpty();
-                if (_random.Next() < _processProbability)
+                if (_random.NextDouble() < _processProbability)
                 {
                     _busy = false;
                     _element.Get();
