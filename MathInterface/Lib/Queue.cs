@@ -6,7 +6,7 @@ namespace Math3.Lib
         private readonly IGet _element;
         private readonly uint _capacity;
         private uint _requests = 0;
-        private bool _nextIsEmpty = true;
+        public uint ticksInQueue = 0;
 
         public Queue(IGet element, uint capacity)
         {
@@ -19,6 +19,11 @@ namespace Math3.Lib
             if (_requests < _capacity)
             {
                 _requests++;
+                if (_element.Get())
+                {
+                    _requests--;
+                }
+                else ticksInQueue++;
                 return true;
             }
             else return false;
@@ -26,12 +31,13 @@ namespace Math3.Lib
 
         public void Tick()
         {
-            if (_nextIsEmpty && _requests > 0)
+            if (_requests > 0)
             {
                 if (_element.Get())
                 {
                     _requests--;
                 }
+                else ticksInQueue++;
             }
         }
     }

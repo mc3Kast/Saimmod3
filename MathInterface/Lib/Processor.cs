@@ -29,7 +29,7 @@ namespace Math3.Lib
         {
             if (_busy)
             {
-                if (_random.NextDouble() < _processProbability)
+                if (_random.NextSingle() < _processProbability)
                 {
                     _busy = false;
                     _element.Get();
